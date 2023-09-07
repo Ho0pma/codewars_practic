@@ -944,4 +944,209 @@
 # print(how_much_i_love_you(6))
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# 44  8 kyu /
+# 44  8 kyu / Find the first non-consecutive number
+
+# Your task is to find the first element of an array that is not consecutive.
+# By not consecutive we mean not exactly 1 larger than the previous element of the array.
+# E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are all consecutive but 6 is not,
+# so that's the first non-consecutive number.
+# If the whole array is consecutive then return null2.
+# The array will always have at least 2 elements1 and all elements will be numbers. The numbers will also all be unique
+# and in ascending order. The numbers could be positive or negative and the first non-consecutive could be either too!
+
+# задача: нужно найти момент когда нарушена последовательность
+# def first_non_consecutive(arr):
+#     for i in range(1, len(arr)):
+#         a = arr[i]
+#         b = arr[i - 1]
+#         if arr[i] == arr[i - 1] + 1:
+#             continue
+#         else:
+#             return arr[i]
+#
+# 2 варик через enumerate
+# def first_non_consecutive(arr):
+#     for i, v in enumerate(arr, arr[0]):
+#         if v != i: return v
+#
+# print(first_non_consecutive([1, 2, 3, 4, 6, 7]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 45  8 kyu / To square(root) or not to square(root)
+#
+# Write a method, that will get an integer array as parameter and will process every number from this array.
+#
+# Return a new array with processing every number of the input-array like this:
+#
+# If the number has an integer square root, take this, otherwise square the number.
+#
+# Example
+# [4,3,9,7,2,1] -> [2,9,3,49,4,1]
+# Notes
+# The input array will always contain only positive numbers, and will never be empty or null.
+
+# задача: нужно возвести в квадрат те числа, от которых нельзя взять чистый корень.
+# def square_or_square_root(arr):
+#     new_arr = []
+#     for i in arr:
+#         square = __import__('math').sqrt(i)
+#         if str(square)[-1] == '0':
+#             new_arr.append(round(square))
+#         else:
+#             new_arr.append(i**2)
+#     return new_arr
+
+# 2 Остаток от деления!
+# from math import sqrt
+# def square_or_square_root(arr):
+#     return [int(sqrt(i)) if sqrt(i) % 1 == 0 else i ** 2 for i in arr]
+#
+#
+# print(square_or_square_root([4, 3, 9, 7, 2, 1]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 46  8 kyu / Count by X
+
+# Create a function with two arguments that will return an array of the first n multiples of x.
+#
+# Assume both the given number and the number of times to count will be positive numbers greater than 0.
+#
+# Return the results as an array or list ( depending on language ).
+#
+# Examples
+# count_by(1,10) #should return [1,2,3,4,5,6,7,8,9,10]
+# count_by(2,5) #should return [2,4,6,8,10]
+
+# задача: вывести кратные Х числа, на диапазоне x * n
+# def count_by(x, n):
+#     return [i for i in range(1, x*n + 1) if i % x == 0]
+
+# 2 это тоже самое если умножать ...
+# def count_by(x, n):
+#     return [i * x for i in range(1, n + 1)]
+
+# print(count_by(3, 5))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 47  8 kyu / Find numbers which are divisible by given number
+
+# Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor.
+# First argument is an array of numbers and the second is the divisor.
+#
+# Example(Input1, Input2 --> Output)
+# [1, 2, 3, 4, 5, 6], 2 --> [2, 4, 6]
+
+# задача вернуть массив чисел, которые кратны divisor
+# def divisible_by(numbers, divisor):
+#     return [i for i in numbers if i % divisor == 0]
+#
+# print(divisible_by([1, 2, 3, 4, 5, 6], 2))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 48  8 kyu / Sum Mixed Array
+
+# Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+#
+# Return your answer as a number.
+
+# вернуть сумму списка
+# def sum_mix(arr):
+#     return sum([int(i) for i in arr])
+#
+# print(sum_mix([9, 3, '7', '3']))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 49  8 kyu / ???
+
+# You are given two sorted arrays that both only contain integers. Your task is to find a way to merge them
+# into a single one, sorted in asc order. Complete the function mergeArrays(arr1, arr2),
+# where arr1 and arr2 are the original sorted arrays.
+# You don('t need to worry about validation, since arr1 and arr2 must be arrays with 0 or more Integers. '
+#         'If both arr1 and arr2 are empty, then just return an empty array.)
+#
+# Note: arr1 and arr2 may be sorted in different orders. Also arr1 and arr2 may have same integers.
+# Remove duplicated in the returned result.
+
+# Examples (input -> output)
+# * [1, 2, 3, 4, 5], [6, 7, 8, 9, 10] -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# * [1, 3, 5, 7, 9], [10, 8, 6, 4, 2] -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# * [1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12] -> [1, 2, 3, 4, 5, 7, 9, 10, 11, 12]
+
+# задача соединить два массива и получить список уникальных чисел
+# def merge_arrays(arr1, arr2):
+#     return sorted(set(arr1 + arr2))
+#
+# print(merge_arrays([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 50  8 kyu / Well of Ideas - Easy Version
+
+# For every good kata idea there seem to be quite a few bad ones!
+#
+# In this kata you need to check the provided array (x) for good ideas 'good' and bad ideas 'bad'. If there are one
+# or two good ideas, return 'Publish!', if there are more than 2 return
+# 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'.
+
+# задача на подсчет элементов в списке.
+# from collections import Counter
+# def well(x):
+#     d = Counter(x)
+#     if 1 <= d['good'] <= 2:
+#         return 'Publish!'
+#     elif d['good'] > 2:
+#         return 'I smell a series!'
+#     else:
+#         return 'Fail!'
+#
+# print(well(['good', 'bad', 'bad', 'bad', 'bad']))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 51  8 kyu / A wolf in sheep's clothing
+
+# Wolves have been reintroduced to Great Britain. You are a sheep farmer, and
+# are now plagued by wolves which pretend to be sheep. Fortunately, you are good at spotting them.
+#
+# Warn the sheep in front of the wolf that it is about to be eaten.
+# Remember that you are standing at the front of the queue which is at the end of the array:
+#
+# [sheep, sheep, sheep, sheep, sheep, wolf, sheep, sheep]      (YOU ARE HERE AT THE FRONT OF THE QUEUE)
+#    7      6      5      4      3            2      1
+# If the wolf is the closest animal to you, return "Pls go away and stop eating my sheep".
+# Otherwise, return "Oi! Sheep number N! You are about to be eaten by a wolf!" where N is the sheep's position in the queue.
+#
+# Note: there will always be exactly one wolf in the array.
+#
+# Examples
+# Input: ["sheep", "sheep", "sheep", "wolf", "sheep"]
+# Output: "Oi! Sheep number 1! You are about to be eaten by a wolf!"
+#
+# Input: ["sheep", "sheep", "wolf"]
+# Output: "Pls go away and stop eating my sheep"
+
+# задача на поиск элемента в списке через индекс
+# def warn_the_sheep(queue):
+#     position = len(queue) - queue.index('wolf')
+#     return (f"Oi! Sheep number {position - 1}! You are about to be eaten by a wolf!", "Pls go away and stop eating my sheep")[position == 1]
+#
+# print(warn_the_sheep(["sheep", "sheep", "sheep", "sheep", "wolf"]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 53  8 kyu /
+
+# задача о сумме списков в списке
+# s = [[1, 2, 3], [4, 5, 6]]
+# total_sum = 0
+# for i in s:
+#     total_sum += sum(i)
+# print(total_sum)
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 53  8 kyu / Enumerable Magic #20 - Cascading Subsets
+# Create a method each_cons that accepts a list and a number n, and returns cascading subsets of the list of size n, like so:
+# each_cons([1, 2, 3, 4], 2)
+# # => [[1,2], [2,3], [3,4]]
+#
+# each_cons([1, 2, 3, 4], 3)
+# # => [[1,2,3],[2,3,4]]
+
+def each_cons(lst, n):
