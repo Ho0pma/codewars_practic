@@ -584,16 +584,364 @@
 #
 # [-56,-85,72,-26,-14,76,-27,72,35,-21,-67,87,0,21,59,27,-92,68] => [-85, 72, 0, 68]
 
-def multiple_of_index(arr):
-    pass
+# задача добавить в новый список значения только кратные индексу
+# def multiple_of_index(arr):
+#     new_arr = []
+#     for index, value in enumerate(arr):
+#         if index == 0 and value != 0:
+#             continue
+#         if value != 0:
+#             if value % index == 0:
+#                 new_arr.append(value)
+#         else:
+#             new_arr.append(value)
+#     return new_arr
+#
+#
+# print(multiple_of_index([0, 71, 44, -44]))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 28  8 kyu / Sort and Star
 
+# You will be given a list of strings. You must sort it alphabetically
+# (case-sensitive, and based on the ASCII values of the chars) and then return the first value.
+#
+# The returned value must be a string, and have "***" between each of its letters.
+#
+# You should not remove or add elements from/to the array.
 
+# задача сделать сортировку и вернуть первое слово в таком стиле: b***i***t***c***o***i***n
+# def two_sort(array):
+#     return '***'.join(sorted(array)[0])
+#
+# print(two_sort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 29  8 kyu / Array plus array
 
+# I('m new to coding and now I want to get the sum of two arrays... '
+#   'Actually the sum of all their elements. I')ll appreciate for your help.
+#
+# P.S. Each array includes only integer numbers. Output is a number too.
 
+# задача вернуть общую сумму списков
+# def array_plus_array(arr1, arr2):
+#     return sum(arr1 + arr2)
+#
+# print(array_plus_array([1, 2, 3], [4, 5, 6]))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 30  8 kyu / Total amount of points
 
+# Our football team has finished the championship.
+#
+# Our team('s match results are recorded in a collection of strings. Each match is represented '
+#          'by a string in the format "x:y", where x is our team')s score and y is our opponents score.
+#
+# For example: ["3:1", "2:2", "0:1", ...]
+#
+# Points are awarded for each match as follows:
+#
+# if x > y: 3 points (win)
+# if x < y: 0 points (loss)
+# if x = y: 1 point (tie)
+# We need to write a function that takes this collection and returns the number of points our team (x)
+# got in the championship by the rules given above.
+#
+# Notes:
+#
+# our team always plays 10 matches in the championship
+# 0 <= x <= 4
+# 0 <= y <= 4
 
+# задача посчитать кол-во очков за чемпионат. +3 за победу, 1 за ничью, 0 за проеб
+# def points(games):
+#     total_value = 0
+#     for i in games:
+#         if i[0] > i[2]:
+#             total_value += 3
+#         elif i[0] == i[2]:
+#             total_value += 1
+#     return total_value
+#
+# print(points(['1:0', '2:0', '3:0', '4:0', '2:1', '3:1', '4:1', '3:2', '4:2', '4:3']))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 31  8 kyu / Convert number to reversed array of digits
 
+# Convert number to reversed array of digits
+# Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+#
+# Example(Input => Output):
+# 35231 => [1,3,2,5,3]
+# 0 => [0]
+
+# задача из введенного числа получить список чисел составляющих это число
+# def digitize(n):
+#     return [int(i) for i in list(str(n))[::-1]]
+#
+#
+# print(digitize(35231))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 32  8 kyu / Sum of positive
+#
+# You get an array of numbers, return the sum of all of the positives ones.
+#
+# Example [1,-4,7,12] => 1 + 7 + 12 = 20
+#
+# Note: if there is nothing to sum, the sum is default to 0.
+
+# вернуть сумму только положительных чисел в списке
+# def positive_sum(arr):
+#     return sum([i for i in arr if i > 0])
+
+# 2 можно без лист компр, через генератор
+# def positive_sum(arr):
+#     return sum(i for i in arr if i > 0)
+# print(positive_sum([1, -4, 7, 12]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 33  8 kyu / Get the mean of an array
+
+# It's the academic year's end, fateful moment of your school report. The averages must be calculated.
+# All the students come to you and entreat you to calculate their average for them. Easy ! You just need to write a script.
+#
+# Return the average of the given array rounded down to its nearest integer.
+#
+# The array will never be empty.
+
+# задача посчитать среднее от списка и округлить в меньшую строну
+# from math import floor
+# def get_average(marks):
+#     return floor(sum(marks) / len(marks))
+#
+# print(get_average([1, 5, 87, 45, 8, 8]))
+
+# 2 без импортов, это же просто целочисленное деление
+# def get_average(marks):
+#     return sum(marks) // len(marks)
+#
+# print(get_average([2, 2, 2, 2]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 34  8 kyu / Beginner - Reduce but Grow
+
+# Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
+#
+# [1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+
+# задача перемножить все числа в списке
+# def grow(arr):
+#     return eval(str(arr)[1:-1].replace(', ', '*'))
+
+# есть еще вариант через math, тоже перемножает элементы массива
+# def grow(arr):
+#     return __import__('math').prod(arr)
+#
+# print(grow([1, 2, 3, 4]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 35  8 kyu / Invert values
+
+# Given a set of numbers, return the additive inverse of each. Each positive becomes negatives,
+# and the negatives become positives.
+#
+# invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+# invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+# invert([]) == []
+# You can assume that all values are integers. Do not mutate the input array/list.
+
+# задача изменить знак числа в списке
+# def invert(lst):
+#     return [-1 * i for i in lst]
+
+# 2 можно не умножать, а просто написать -i
+# def invert(lst):
+#     return [-i for i in lst]
+#
+# print(invert([1, 2, 3, 4, -5]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 36  8 kyu / My head is at the wrong end!
+
+# You('re at the zoo... all the meerkats look weird. '
+#     'Something has gone terribly wrong - someone has gone and switched their heads and tails around!)
+#
+# Save the animals by switching them back. You will be given an array which will have three values
+# (tail, body, head). It is your job to re-arrange the array so that the animal is the right way round (head, body, tail).
+#
+# Same goes for all the other arrays/lists that you will get in the tests:
+#     you have to change the element positions with the same exact logics
+#
+# Simples!
+
+# задача хуита, нужно просто перевернуть массив
+# def fix_the_meerkat(arr):
+#     return arr[::-1]
+#
+# print(fix_the_meerkat(["tail", "body", "head"]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 37  8 kyu / Filter out the geese
+#
+# Write a function that takes a list of strings as an argument and returns a filtered list containing
+# the same elements but with the 'geese' removed.
+# The geese are any strings in the following array, which is pre-populated in your solution:
+#
+#   ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+# For example, if this array were passed as an argument:
+#
+#  ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+# Your function would return the following array:
+#
+# ["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+# The elements in the returned array should be in the same order as in the initial array passed to your function, albeit
+# with the 'geese' removed. Note that all of the strings will be in the same case as those provided, and some elements may be repeated.
+
+# задача отрефакторить поступающий список. Вывести только те элементы списка, которых нет в geese
+# geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+# def goose_filter(birds):
+#     return [i for i in birds if i not in geese]
+#
+# print(goose_filter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 38  8 kyu / Is there a vowel in there?
+
+# Given an array of numbers, check if any of the numbers are the character codes for lower case vowels (a, e, i, o, u).
+# If they are, change the array value to a string of that vowel.
+# Return the resulting array.
+
+# задача: заменить число на его chr значение, если оно входит в (a, e, i, o, u)
+# def is_vow(inp):
+#     return [chr(i) if i in {97, 111, 101, 117, 105} else i for i in inp]
+#
+# print(is_vow([118, 117, 120, 121, 117, 98, 122, 97, 120, 106, 104, 116, 113, 114, 113, 120, 106]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 39  8 kyu / Count the Monkeys!
+
+# You take your son to the forest to see the monkeys. You know that there are a certain number there (n),
+# but your son is too young to just appreciate the full number, he has to start counting them from 1.
+#
+# As a good parent, you will sit and count with him. Given the number (n), populate an array with all
+# numbers up to and including that number, but excluding zero.
+#
+# For example(Input --> Output):
+#
+# 10 --> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#  1 --> [1]
+
+# задача создать список из возрастающих чисел. Длина передается в качестве аргумента
+# def monkey_count(n):
+#     return [i + 1 for i in range(n)]
+#
+# print(monkey_count(10))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 40  8 kyu / Beginner - Lost Without a Map
+
+# Given an array of integers, return a new array with each value doubled.
+#
+# For example:
+#
+# [1, 2, 3] --> [2, 4, 6]
+
+# вернуть х2 значение из списка
+# def maps(a):
+# return [i * 2 for i in a]
+
+# 2 через лямбду + map
+# def maps(a):
+#     return list(map(lambda x: x * 2, a))
+#
+# print(maps([1, 2, 3]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 41  8 kyu / No Loops 2 - You only need one
+#
+# *** No Loops Allowed ***
+#
+# You will be given an array a and a value x. All you need to do is check whether the provided array contains the value, without using a loop.
+#
+# Array can contain numbers or strings. x can be either. Return true if the array contains the value, false if not.
+# With strings you will need to account for case.
+#
+# Looking for more, loop-restrained fun? Check out the other kata in the series:
+#
+# No Loops 1 - Small enough?
+
+# задача проверить есть ли x в a
+# def check(a, x):
+#     return x in a
+#
+# print(check(['what', 'a', 'great', 'kata'], 'kat'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 42  8 kyu / No Loops 2 - You only need one
+
+# Write a function that takes an array of numbers and returns the sum of the numbers.
+# The numbers can be negative or non-integer. If the array does not contain any numbers then you should return 0.
+#
+# Examples
+# Input: [1, 5.2, 4, 0, -1]
+# Output: 9.2
+#
+# Input: []
+# Output: 0
+#
+# Input: [-2.398]
+# Output: -2.398
+#
+# Assumptions
+# You can assume that you are only given numbers.
+# You cannot assume the size of the array.
+# You can assume that you do get an array and if the array is empty, return 0.
+# What We're Testing
+# We're testing basic loops and math operations. This is for beginners who are just learning loops and math operations.
+# Advanced users may find this extremely easy and can easily write this in one line.
+
+# задача просуммировать числа в массиве
+# def sum_array(a):
+#     return sum(a)
+#
+# print(sum_array([1, 2, 3]))
+# print(sum_array([]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 43  8 kyu / No Loops 2 - You only need one
+
+# Who remembers back to their time in the schoolyard, when girls would take a flower and
+# tear its petals, saying each of the following phrases each time a petal was torn:
+#
+# "I love you"
+# "a little"
+# "a lot"
+# "passionately"
+# "madly"
+# "not at all"
+# If there are more than 6 petals, you start over with "I love you" for 7 petals, "a little" for 8 petals and so on.
+#
+# When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+#
+# Your goal in this kata is to determine which phrase the girls would say at the last petal for
+#     a flower of a given number of petals. The number of petals is always greater than 0.
+
+# задача вывести значение по ключу из словаря, если аргумент > существующих ключей - идти по кругу
+# def how_much_i_love_you(nb_petals):
+#     d = {
+#         1: "I love you",
+#         2: "a little",
+#         3: "a lot",
+#         4: "passionately",
+#         5: "madly",
+#         6: "not at all"
+#     }
+#     mod = nb_petals % 6
+#     return d[mod] if mod != 0 else d[6]
+#
+# print(how_much_i_love_you(6))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 44  8 kyu /
