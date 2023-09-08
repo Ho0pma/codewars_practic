@@ -1149,4 +1149,217 @@
 # each_cons([1, 2, 3, 4], 3)
 # # => [[1,2,3],[2,3,4]]
 
-def each_cons(lst, n):
+# задача (сложно) создать списки в списке по аналогии сверху
+# def each_cons(lst, n):
+#     lst_for_zip = []
+#     for i in range(n):
+#         lst_for_zip.append(lst[i:])
+#
+#     return [list(i) for i in zip(*lst_for_zip)]
+#
+# 2
+# def each_cons(lst, n):
+#     return [lst[i:i + n] for i in range(len(lst) - n + 1)]
+# print(each_cons([3, 5, 8, 13], 3))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 54  8 kyu / Enumerable Magic #1 - True for All?
+
+# Task
+# Create a method all which takes two params:
+#
+# a sequence
+# a function (function pointer in C)
+# and returns true if the function in the params returns true for every element
+#     in the sequence. Otherwise, it should return false. If the sequence is empty,
+#     it should return true, since technically nothing failed the test.
+#
+# Example
+# all((1, 2, 3, 4, 5), greater_than_9) -> false
+# all((1, 2, 3, 4, 5), less_than_9)    -> True
+
+# задача проверит все ли значения в последовательности True
+# def _all(seq, fun):
+#     return False if False in [fun(i) for i in seq] else True
+#
+# greater_than_9 = lambda x: x > 9
+# less_than_9 = lambda x: x < 9
+#
+# # 2 очевидно задача на all / any
+# def _all(seq, fun):
+#     return all(map(fun, seq))
+#
+# print(_all((1, 2, 3, 4, 5), less_than_9))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 55  8 kyu / Swap Values
+
+# I would like to be able to pass an array with two elements to my swapValues
+# function to swap the values. However it appears that the values aren't changing.
+#
+# Can you figure out what's wrong here?
+
+# задача поменять местами заначения
+# def swap_values(args):
+#     args[0], args[1] = args[1], args[0]
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 56  8 kyu / Logical calculator
+#
+# Your Task
+# Given an array of Boolean values and a logical operator, return a
+# Boolean result based on sequentially applying the operator to the values in the array.
+#
+# Examples
+# booleans = [True, True, False], operator = "AND"
+# True AND True -> True
+# True AND False -> False
+# return False
+# booleans = [True, True, False], operator = "OR"
+# True OR True -> True
+# True OR False -> True
+# return True
+# booleans = [True, True, False], operator = "XOR"
+# True XOR True -> False
+# False XOR False -> False
+# return False
+# Input
+# an array of Boolean values (1 <= array_length <= 50)
+# a string specifying a logical operator: "AND", "OR", "XOR"
+# Output
+# A Boolean value (True or False).
+
+# задача (сложно) вычисляет булево выражение в скобках
+# def logical_calc(array, op):
+#     if op == 'XOR':
+#         op = '^'
+#     s = eval(f' {op.lower()} '.join([str(i) for i in array]))
+#     return s
+#
+# print(logical_calc([True, True, False], 'XOR'))
+
+# 2 reduce(func, iter, start=0)
+# import operator
+# from functools import reduce
+#
+# def logical_calc(array, op):
+#     d = {
+#         'AND': operator.and_,
+#         'OR': operator.or_,
+#         'XOR': operator.xor
+#     }
+#     return reduce(d[op], array) # берет первые два элемента массива и применяет к ним функцию d[op],
+#                                 # потом полученное значение в стаке со следующим и тд
+#
+# print(logical_calc([True, True, False], 'AND'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 57  8 kyu / UEFA EURO 2016
+
+# Finish the uefaEuro2016() function so it return string just like in the examples below:
+#
+# uefa_euro_2016(['Germany', 'Ukraine'],[2, 0]) # "At match Germany - Ukraine, Germany won!"
+# uefa_euro_2016(['Belgium', 'Italy'],[0, 2]) # "At match Belgium - Italy, Italy won!"
+# uefa_euro_2016(['Portugal', 'Iceland'],[1, 1]) # "At match Portugal - Iceland, teams played draw."
+
+# задача на сравнение и применение f-строки
+# def uefa_euro_2016(teams, scores):
+#     if scores[0] == scores[1]:
+#         return f'At match {teams[0]} - {teams[1]}, teams played draw.'
+#     else:
+#         return f'At match {teams[0]} - {teams[1]}, {teams[0] if scores[0] > scores[1] else teams[1]} won!'
+#
+# print(uefa_euro_2016(['Germany', 'Ukraine'],[2, 2]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 58  8 kyu / UEFA EURO 2016
+
+# SpeedCode #2 - Array Madness
+# Objective
+# Given two integer arrays a, b, both of length >= 1, create a program that returns true if the sum of
+# the squares of each element in a is strictly greater than the sum of the cubes of each element in b.
+#
+# E.g.
+#
+# array_madness([4, 5, 6], [1, 2, 3]) => True #because 4 ** 2 + 5 ** 2 + 6 ** 2 > 1 ** 3 + 2 ** 3 + 3 ** 3
+# Get your timer out. Are you ready? Ready, get set, GO!!!
+
+# def array_madness(a, b):
+#     return sum(i ** 2 for i in a) > sum(i ** 3 for i in b)
+#
+# print(array_madness([4, 5, 6], [1, 2, 3]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 59  8 kyu / ???
+#
+# At the annual family gathering, the family likes to find the oldest living family member’s age and the
+# youngest family member’s age and calculate the difference between them.
+#
+# You will be given an array of all the family members(' ages, in any order. The ages will be given in whole numbers, so a baby '
+# 'of 5 months, will have an ascribed ‘age’ of 0. Return a new array (a tuple in Python) with '
+#          '[youngest age, oldest age, difference between the youngest and oldest age].)
+
+# def difference_in_ages(ages):
+#     return min(ages), max(ages), abs(max(ages) - min(ages))
+#
+# print(difference_in_ages([16, 22, 31, 44, 3, 38, 27, 41, 88]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 60  8 kyu / Merging sorted integer arrays (without duplicates)
+
+# Write a function that merges two sorted arrays into a single one.
+# The arrays only contain integers. Also, the final outcome must be sorted and not have any duplicate.
+
+# def merge_arrays(first, second):
+#     return sorted(set(first + second))
+#
+# print(merge_arrays([1, 3, 5], [2, 4, 6]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 61  8 kyu / Sort My Textbooks
+
+# HELP! Jason can't find his textbook! It is two days before the test date, and Jason's
+# textbooks are all out of order! Help him sort a list (ArrayList in java) full of textbooks by subject,
+# so he can study before the test.
+#
+# The sorting should NOT be case sensitive
+
+# задача отсортировать список без учета регистра. Прикольная
+# def sorter(texts):
+#     return sorted(texts, key=lambda x: x.lower())
+#
+# print(sorter(['Algebra', 'history', 'Geometry', 'english']))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 62  8 kyu / Grasshopper - Array Mean
+
+# Find Mean
+# Find the mean (average) of a list of numbers in an array.
+#
+# Information
+# To find the mean (average) of a set of numbers add all of the numbers together and divide by the number of values in the list.
+#
+# For an example list of 1, 3, 5, 7
+#
+# 1. Add all of the numbers
+#
+# 1+3+5+7 = 16
+# 2. Divide by the number of values in the list. In this example there are 4 numbers in the list.
+#
+# 16/4 = 4
+# 3. The mean (or average) of this list is 4
+
+# задача найти среднее значение списка
+# def find_average(nums):
+#     return sum(nums) / len(nums) if nums else 0
+#
+# print(find_average([1, 3, 5, 7]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 63  8 kyu /
+
+
+
+
+
+
