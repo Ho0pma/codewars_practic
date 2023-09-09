@@ -1356,10 +1356,182 @@
 # print(find_average([1, 3, 5, 7]))
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# 63  8 kyu /
+# 63  8 kyu / Short Long Short
+#
+# Given 2 strings, a and b, return a string of the form short+long+short,
+# with the shorter string on the outside and the longer string on the inside.
+# The strings will not be the same length, but they may be empty ( zero length ).
+#
+# Hint for R users:
+#
+# The length of string is not always the same as the number of characters
+# For example: (Input1, Input2) --> output
+#
+# ("1", "22") --> "1221"
+# ("22", "1") --> "1221"
 
+# задача соединить строки как мин + макс + мин
+# def solution(a, b):
+#     if len(a) > len(b):
+#         max_s, min_s = a, b
+#     else:
+#         max_s, min_s = b, a
+#     return f'{min_s}{max_s}{min_s}'
 
+# 2
+# def solution(a, b):
+#     return a+b+a if len(a) < len(b) else b+a+b
+#
+# print(solution('U', 'False'))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 64  8 kyu / Short Long Short (debug)
 
+# Your coworker was supposed to write a simple helper function to capitalize a string
+# (that contains a single word) before they went on vacation.
+#
+# Unfortunately, they have now left and the code they gave you doesn't work.
+# Fix the helper function they wrote so that it works as intended (i.e. make the first character in the string "word" upper case).
+#
+# Don't worry about numbers, special characters, or non-string types being passed to the function.
+# The string lengths will be from 1 character up to 10 characters, but will never be empty.
 
+# задача сделать первую букву заглавной
+# def capitalize_word(word):
+#     return word[0].upper() + word[1:]
 
+# 2 оказывается есть функция для заглавных букв
+# def capitalize_word(word):
+#     return word.capitalize()
+#
+# print(capitalize_word('word'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 65  8 kyu / Who is going to pay for the wall?
+
+# Don Drumphet lives in a nice neighborhood, but one of his neighbors has started to let his house go. Don Drumphet
+# wants to build a wall between his house and his neighbor’s, and is trying to get the neighborhood association to
+# pay for it. He begins to solicit his neighbors to petition to get the association to build the wall.
+# Unfortunately for Don Drumphet, he cannot read very well, has a very limited attention span, and
+# can only remember two letters from each of his neighbors’ names. As he collects signatures,
+# he insists that his neighbors keep truncating their names until two letters remain, and he can finally read them.
+#
+# Your code will show Full name of the neighbor and the truncated version of the name as an array. If the number
+# of the characters in name is less than or equal to two, it will return an array containing only the name as is"
+
+# def who_is_paying(name):
+#     return [name, name[:2]] if len(name) > 2 else [name]
+#
+# print(who_is_paying(''))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 66  8 kyu / Vowel remover
+
+# Create a function called shortcut to remove the lowercase vowels (a, e, i, o, u ) in a given string.
+#
+# Examples
+# "hello"     -->  "hll"
+# "codewars"  -->  "cdwrs"
+# "goodbye"   -->  "gdby"
+# "HELLO"     -->  "HELLO"
+# don't worry about uppercase vowels
+# y is not considered a vowel for this kata
+
+# задача убрать гласные из слова
+# def shortcut(s):
+#     return ''.join(i for i in s if i not in {'a', 'e', 'i', 'o', 'u'})
+#
+# print(shortcut('hello'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 67  8 kyu / Contamination #1 -String-
+
+# An AI has infected a text with a character!!
+# This text is now fully mutated to this character.
+# If the text or the character are empty, return an empty string.
+# There will never be a case when both are empty as nothing is going on!!
+# Note: The character is a string of length 1 or an empty string.
+#
+# Example
+# text before = "abc"
+# character   = "z"
+# text after  = "zzz"
+
+# def contamination(text, char):
+#     return len(text) * char
+#
+# print(contamination('abc', 'z'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 67  8 kyu / Up and down, the string grows
+
+# Write a function that returns a string in which firstname is swapped with last name.
+#
+# Example(Input --> Output)
+#
+# "john McClane" --> "McClane john"
+
+# задача поменять местами слова в строке
+# def name_shuffler(str_):
+#     return ' '.join(str_.split()[::-1])
+#
+# print(name_shuffler('john McClane'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 68  8 kyu / DNA to RNA Conversion
+
+# задача земенить букву
+# def dna_to_rna(dna):
+#     return dna.replace('T', 'U')
+#
+# print(dna_to_rna('TTT'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 69  8 kyu / DNA to RNA Conversion
+#
+# Make a function that will return a greeting statement that uses an input;
+# your program should return, "Hello, <name> how are you doing today?".
+#
+# [Make sure you type the exact thing I wrote or the program may not execute properly]
+
+# def greet(name):
+#     return f"Hello, {name} how are you doing today?"
+#
+# print(greet('b'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 70  8 kyu / Abbreviate a Two Word Name
+
+# Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+# The output should be two capital letters with a dot separating them.
+# It should look like this:
+# Sam Harris => S.H
+# patrick feeney => P.F
+
+# задача вернуть инициалы имени и фамилии. Этот вариант подойдет только если был ввод с заглавной буквы
+# def abbrev_name(name):
+#     return '.'.join(i for i in name if i.isupper())
+
+# 2
+# def abbrev_name(name):
+#     lst = name.split()
+#     return f'{lst[0][0].upper()}.{lst[1][0].upper()}'
+#
+#
+# print(abbrev_name('Sam Harris'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 71  8 kyu / Is the string uppercase?
+
+# задача проверить написаны ли все слова капсом в строке
+# def is_uppercase(inp):
+#     return not bool(''.join(i for i in inp if i.islower()))
+
+# 2 есть попроще варик
+# def is_uppercase(inp):
+#     return inp.upper() == inp
+#
+# print(is_uppercase('HELLO'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 72  8 kyu /
