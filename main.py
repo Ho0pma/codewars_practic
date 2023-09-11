@@ -1534,4 +1534,841 @@
 # print(is_uppercase('HELLO'))
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# 72  8 kyu /
+# 72  8 kyu / A Letter's Best Friend
+
+# Task
+# Given a string, return if a given letter always appears immediately before another given letter.
+#
+# Worked Example
+# ("he headed to the store", "h", "e") ➞ True
+#
+# # All occurences of "h": ["he", "headed", "the"]
+# # All occurences of "h" have an "e" after it.
+# # Return True
+#
+# ('abcdee', 'e', 'e') ➞ False
+#
+# # For first "e" we can get "ee"
+# # For second "e" we cannot have "ee"
+# # Return False
+# Examples
+# ("i found an ounce with my hound", "o", "u") ➞ True
+#
+# ("we found your dynamite", "d", "y") ➞ False
+
+# задача (интересно) проверить стоит ли после каждого аргумента a - аргумент b
+# def best_friend(txt, a, b):
+#     result = False
+#     for index, value in enumerate(txt):
+#         if index == len(txt) - 1 and value == a:
+#             return result
+#         elif value == a:
+#             if txt[index + 1] != b:
+#                 return result
+#     return not result
+
+# 2 можно было просто сравнить кол-во символов
+# def best_friend(txt, a, b):
+#     return txt.count(a) == txt.count(a + b)
+#
+# print(best_friend("i found an ounce with my hound", "o", "u"))
+# print(best_friend("we found your dynamite", "d", "y"))
+# print(best_friend('abcde', 'e', 'e'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 73  8 kyu / 
+
+# The purpose of this kata is to work out just how many bottles of duty free whiskey you would have to buy such that
+# the savings over the normal high street price would effectively cover the cost of your holiday.
+# You will be given the high street price (normPrice, in £ (Pounds)), the duty free discount (discount, in percent)
+# and the cost of the holiday (in £).
+# For example, if a bottle costs £10 normally and the duty free discount is 10%, you would save £1 per bottle.
+# If your holiday will cost £500, you would have to purchase 500 bottles to save £500, so the answer you return should be 500.
+# Another example: if a bottle costs £12 normally and the duty free discount is 50%, you would save £6 per bottle.
+# If your holiday will cost £1000, you would have to purchase 166.66 bottles to save £1000, so your answer should be 166 bottles.
+# All inputs will be integers. Please return an integer. Round down.
+
+# задача посчитать сколько нужно купить бутылок, чтобы окупить отпуск !?!!?
+# def duty_free(price, discount, holiday_cost):
+#     return holiday_cost // ((price * discount) / 100)
+#
+# print(duty_free(12, 50, 1000))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 74  8 kyu / ???
+
+# Issue
+# Looks like some hoodlum plumber and his brother has been running around and damaging your stages again.
+# The pipes connecting your level's stages together need to be fixed before you receive any more complaints.
+# The pipes are correct when each pipe after the first is 1 more than the previous one.
+# Task
+# Given a list of unique numbers sorted in ascending order, return a new list so that the values increment by 1 for
+#     each index from the minimum value up to the maximum value (both included).
+# Example
+# Input:  1,3,5,6,7,8 Output: 1,2,3,4,5,6,7,8
+
+# задача восстановить последовательности чисел (вставить пропущенные цифры)
+# def pipe_fix(nums):
+#     return [i for i in range(nums[0], nums[-1] + 1)]
+#
+# print(pipe_fix([1, 2, 3, 12]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 74  8 kyu / Bin to Decimal
+
+# Complete the function which converts a binary number (given as a string) to a decimal number.
+
+# задача получить из двоичного числа - десятеричное
+# def bin_to_decimal(inp):
+#     return int(inp, 2)
+#
+# print(bin_to_decimal('10'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 74  8 kyu / Regex count lowercase letters
+
+# Your task is simply to count the total number of lowercase letters in a string.
+# Examples
+# "abc" ===> 3
+# "abcABC123" ===> 3
+# "abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~" ===> 3
+# "" ===> 0;
+# "ABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~" ===> 0
+# "abcdefghijklmnopqrstuvwxyz" ===> 26
+
+# задача посчитать кол-во символов в нижнем регистре
+# def lowercase_count(strng):
+#     return len([i for i in strng if i.islower()])
+
+# 2 так лучше тк генератор
+# def lowercase_count(strng):
+#     return sum(i.islower() for i in strng)
+#
+# print(lowercase_count('AGSDGA1513451asd'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 75  8 kyu / Training JS #18: Methods of String object--concat() split() and its good friend join()
+
+# задача сепарировать заданным знаком каждое слово в строке
+# def split_and_merge(string_, separator):
+#     return ' '.join(separator.join(list(i)) for i in string_.split())
+#
+# print(split_and_merge("My name is John"," "))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 76  8 kyu / Sum of Multiples
+
+# Your Job
+# Find the sum of all multiples of n below m
+#
+# Keep in Mind
+# n and m are natural numbers (positive integers)
+# m is excluded from the multiples
+# Examples
+# sumMul(2, 9)   ==> 2 + 4 + 6 + 8 = 20
+# sumMul(3, 13)  ==> 3 + 6 + 9 + 12 = 30
+# sumMul(4, 123) ==> 4 + 8 + 12 + ... = 1860
+# sumMul(4, -7)  ==> "INVALID"
+
+# def sum_mul(n, m):
+#     if n > 0 and m > 0:
+#         return sum(range(n, m, n))
+#     else:
+#         return 'INVALID'
+#
+# print(sum_mul(2, 9))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 77  8 kyu / Volume of a Cuboid
+
+# Bob needs a fast way to calculate the volume of a cuboid with three values: the length,
+# width and height of the cuboid. Write a function to help Bob with this calculation.
+
+# def get_volume_of_cuboid(length, width, height):
+#     return length * width * height
+#
+# print(get_volume_of_cuboid(6.3, 2, 5))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 78  8 kyu / Who ate the cookie?
+
+# For this problem you must create a program that says who ate the last cookie.
+# If the input is a string then "Zach" ate the cookie. If the input is a float or an int then "Monica"
+# ate the cookie. If the input is anything else "the dog" ate the cookie. The way to return the statement is: "Who ate the last cookie? It was (name)!"
+# Ex: Input = "hi" --> Output = "Who ate the last cookie? It was Zach! (The reason you return Zach is because the input is a string)
+#
+# Note: Make sure you return the correct message with correct spaces and punctuation.
+#
+# Please leave feedback for this kata. Cheers!
+
+# задача в соответствии с типом вводимого аргумента - вывести соотв. значение
+# def cookie(x):
+#     if type(x) in (int, float):
+#         return "Who ate the last cookie? It was Monica!"
+#     elif type(x) == str:
+#         return "Who ate the last cookie? It was Zach!"
+#     else:
+#         return "Who ate the last cookie? It was the dog!"
+
+# 2 пиздатый вар (интересно)
+# def cookie(x):
+#     return f'Who ate the last cookie? It was %s!' % {str: 'Zach', float or int: 'Monica'}.get(type(x), 'the dog')
+#
+# print(cookie(1.1))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 79  8 kyu / No zeros for heros
+
+# Numbers ending with zeros are boring.
+# They might be fun in your world, but not here.
+# Get rid of them. Only the ending ones.
+# 1450 -> 145
+# 960000 -> 96
+# 1050 -> 105
+# -1050 -> -105
+# Zero alone is fine, don't worry about it. Poor guy anyway
+
+# задача убрать нули в конце числа
+# def no_boring_zeros(n):
+#     while str(n)[-1] == '0' and len(str(n)) > 1:
+#         n //= 10
+#     return n
+
+# 2 интересно. strip убирает все нули справа
+# def no_boring_zeros(n):
+#     return str(n).strip('0') if n else 0
+#
+# print(no_boring_zeros(123412000000))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 80  8 kyu / Area or Perimeter
+
+# You are given the length and width of a 4-sided polygon. The polygon can either be a rectangle or a square.
+# If it is a square, return its area. If it is a rectangle, return its perimeter.
+#
+# Example(Input1, Input2 --> Output):
+#
+# 6, 10 --> 32
+# 3, 3 --> 9
+# Note: for the purposes of this kata you will assume that it is a square
+# if its length and width are equal, otherwise it is a rectangle.
+
+# задача вернуть площадь многоугольника если он квадрат, в противном случае - вернуть площадь
+# def area_or_perimeter(l, w):
+#     return l * w if l == w else 2 * l + 2 * w
+#
+# print(area_or_perimeter(6, 10))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 81  8 kyu / Reverse List Order
+
+# In this kata you will create a function that takes in a list and returns a list with the reverse order.
+#
+# Examples (Input -> Output)
+# * [1, 2, 3, 4]  -> [4, 3, 2, 1]
+# * [9, 2, 0, 7]  -> [7, 0, 2, 9]
+
+# задача вернуть лист в обратном порядке
+# def reverse_list(l):
+#     return l[::-1]
+#
+# print(reverse_list([1, 2, 3]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 82  8 kyu / Will there be enough space?
+
+# The Story:
+# Bob is working as a bus driver. However, he has become extremely popular amongst
+# the city's residents. With so many passengers wanting to get aboard his bus, he sometimes has to face
+# the problem of not enough space left on the bus! He wants you to write a simple program telling him
+# if he will be able to fit all the passengers.
+#
+# Task Overview:
+# You have to write a function that accepts three parameters:
+#
+# cap is the amount of people the bus can hold excluding the driver.
+# on is the number of people on the bus excluding the driver.
+# wait is the number of people waiting to get on to the bus excluding the driver.
+# If there is enough space, return 0, and if there isn't, return the number of passengers he can't take.
+#
+# Usage Examples:
+# cap = 10, on = 5, wait = 5 --> 0 # He can fit all 5 passengers
+# cap = 100, on = 60, wait = 50 --> 10 # He can't fit 10 of the 50 waiting
+
+# задача вычислить сколько людей оставить за бортом
+# def enough(cap, on, wait):
+#     free_suits = cap - on
+#     return 0 if free_suits > wait else wait - free_suits
+#
+# print(enough(100, 60, 50))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 83  8 kyu / Find the position!
+
+# When provided with a letter, return its position in the alphabet.
+# Input :: "a"
+# Ouput :: "Position of alphabet: 1"
+
+# задача найти индекс буквы в алфавите
+# from string import ascii_letters
+#
+# def position(alphabet):
+#     return f'Position of alphabet: {ascii_letters.index(alphabet) + 1}'
+
+# 2 интересно / буква а начинается с 97ой строки
+# def position(alphabet):
+#     return 'Position of alphabet: {}'.format(ord(alphabet) - 96)
+# #
+# print(position('e'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 84  8 kyu / et character from ASCII Value
+
+# Write a function which takes a number and returns the corresponding ASCII char for that value.
+# Example:
+# 65 --> 'A'
+# 97 --> 'a'
+# 48 --> '0
+# For ASCII table, you can refer to http://www.asciitable.com/
+
+# задача получить значение из таблицы ASCII по индексу
+# def get_char(c):
+#     return chr(c)
+#
+# print(get_char(65))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 85  8 kyu / Drink about
+
+# Kids drink toddy.
+# Teens drink coke.
+# Young adults drink beer.
+# Adults drink whisky.
+# Make a function that receive age, and return what they drink.
+#
+# Rules:
+#
+# Children under 14 old.
+# Teens under 18 old.
+# Young under 21 old.
+# Adults have 21 or more.
+# Examples: (Input --> Output)
+#
+# 13 --> "drink toddy"
+# 17 --> "drink coke"
+# 18 --> "drink beer"
+# 20 --> "drink beer"
+# 30 --> "drink whisky"
+
+# задача понять когда можно бухать пивасик
+# def people_with_age_drink(age):
+#     if age < 14:
+#         return "drink toddy"
+#     elif 14 <= age < 18:
+#         return "drink coke"
+#     elif 18 <= age < 21:
+#         return "drink beer"
+#     elif age >= 21:
+#         return "drink whisky"
+
+# 2 интересно / этот вар как будто бы лучше (начинать с конца короче)
+# def people_with_age_drink(age):
+#     if age > 20: return 'drink whisky'
+#     if age > 17: return 'drink beer'
+#     if age > 13: return 'drink coke'
+#     return 'drink toddy'
+#
+# print(people_with_age_drink(16))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 86  8 kyu / How good are you really?
+
+# There was a test in your class and you passed it. Congratulations!
+# But you're an ambitious person. You want to know if you're better than the average student in your class.
+# You receive an array with your peers' test scores. Now calculate the average and compare your score!
+# Return True if you're better, else False!
+# Note:
+# Your points are not included in the array of your class's points.
+# For calculating the average point you may add your point to the given array!
+
+# задача проверить лучше ли ты большинства в классе
+# def better_than_average(class_points, your_points):
+#     return (sum(class_points) / len(class_points)) < your_points
+#
+# print(better_than_average([2, 5], 5))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 87  8 kyu / Is he gonna survive?
+
+# A hero is on his way to the castle to complete his mission.
+# However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes
+# 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab
+# a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+# Return true if yes, false otherwise :)
+
+# def hero(bullets, dragons):
+#     return bullets >= dragons * 2
+#
+# print(hero(7, 4))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 88  8 kyu / Is it a palindrome?
+
+# Write a function that checks if a given string (case insensitive) is a palindrome. A palindrome is a word,
+# number, phrase, or other sequence of symbols that reads the same backwards as forwards, such as madam or racecar,
+# the date and time 12/21/33 12:21, and the sentence: "A man, a plan, a canal – Panama".
+
+# задача проверить на палиндром
+# def is_palindrome(s):
+#     l = int(len(s) / 2)
+#     s = s.lower()
+#     if len(s) % 2 == 0:
+#         return s[:l] == s[l:][::-1]
+#     else:
+#         return s[:l] == s[l + 1:][::-1]
+
+# 2 замудрил, просто проверить равна ли строка перевернутой строке
+# def is_palindrome(s):
+#     print(s)
+#     print(s[::-1])
+#
+# print(is_palindrome('ava'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 89  8 kyu / L1: Set Alarm
+
+# Write a function named setAlarm/set_alarm/set-alarm/setalarm (depending on language) which receives two parameters.
+# The first parameter, employed, is true whenever you are employed and the second parameter, vacation is true whenever you are on vacation.
+#
+# The function should return true if you are employed and not on vacation
+# (because these are the circumstances under which you need to set an alarm). It should return false otherwise. Examples:
+#
+# employed | vacation
+# true     | true     => false
+# true     | false    => true
+# false    | true     => false
+# false    | false    => false
+
+# задачка на логику
+# def set_alarm(employed, vacation):
+#     if employed and vacation == False:
+#         return True
+#     else:
+#         return False
+
+# 2 нужно было записать так
+# def set_alarm(employed, vacation):
+#     return employed and not vacation
+#
+# print(set_alarm(True, True))
+# print(set_alarm(True, False))
+# print(set_alarm(False, True))
+# print(set_alarm(False, False))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 90  8 kyu / What is between?
+
+# Complete the function that takes two integers (a, b, where a < b)
+# and return an array of all integers between the input parameters, including them.
+#
+# For example:
+#
+# a = 1
+# b = 4
+# --> [1, 2, 3, 4]
+
+# вывести лист с заданным диапазоном
+# def between(a,b):
+#     return list(range(a, b + 1))
+#
+# print(between(1, 4))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 91  8 kyu / Student's Final Grade
+
+# Create a function finalGrade, which calculates the final grade of a student depending
+# on two parameters: a grade for the exam and a number of completed projects.
+# This function should take two arguments: exam - grade for exam (from 0 to 100); projects - number of completed projects (from 0 and above);
+# This function should return a number (final grade). There are four types of final grades:
+#
+# 100, if a grade for the exam is more than 90 or if a number of completed projects more than 10.
+# 90, if a grade for the exam is more than 75 and if a number of completed projects is minimum 5.
+# 75, if a grade for the exam is more than 50 and if a number of completed projects is minimum 2.
+# 0, in other cases
+# Examples(Inputs-->Output):
+#
+# 100, 12 --> 100
+# 99, 0 --> 100
+# 10, 15 --> 100
+#
+# 85, 5 --> 90
+#
+# 55, 3 --> 75
+#
+# 55, 0 --> 0
+# 20, 2 --> 0
+# *Use Comparison and Logical Operators.
+
+# задача на варианты событий, демонстрация удобного if
+# def final_grade(exam, projects):
+#     if exam > 90 or projects > 10: return 100
+#     if exam > 75 and projects >= 5: return 90
+#     if exam > 50 and projects >= 2: return 75
+#     return 0
+#
+# print(final_grade(100, 12))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 92  8 kyu / Super Duper Easy
+
+# Make a function that returns the value multiplied by 50 and
+# increased by 6. If the value entered is a string it should return "Error".
+
+# интересно задача на типы, если строка - одно, если инт - другое
+# def problem(a):
+#     return {str: 'Error', int: (a * 50) + 6}.get(type(a))
+
+# def problem(a):
+#     return a * 50 + 6 if type(a) in (int, float) else 'Error'
+#
+# print(problem(1))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 93  8 kyu / Plural
+
+# We need a simple function that determines if a plural is needed or not. It should take a number, and return true if
+# a plural should be used with that number or false if not. This would be useful when printing out a string such as 5 minutes, 14 apples, or 1 sun.
+# You only need to worry about english grammar rules for this kata, where anything that isn('t singular (one of something),'
+# ' it is plural (not one of something).)
+# All values will be positive integers or floats, or zero.
+
+# def plural(n):
+#     return False if n == 1 else True
+#
+# print(plural(2))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 94  8 kyu / What's the real floor?
+
+# Americans are odd people: in their buildings, the first floor is actually the ground floor and there is no 13th floor
+# (due to superstition).
+# Write a function that given a floor in the american system returns the floor in the european system.
+# With the 1st floor being replaced by the ground floor and the 13th floor being removed, the numbers
+# move down to take their place. In case of above 13, they move down by two because there are two omitted numbers below them.
+# Basements (negatives) stay the same as the universal level.
+# More information here
+# Examples
+# 1  =>  0
+# 0  =>  0
+# 5  =>  4
+# 15  =>  13
+# -3  =>  -3
+
+# задача вычислить какой этаж по европейской системе!??!?
+# def get_real_floor(n):
+#     if n <= 0: return n
+#     if n > 12: return n - 2
+#     return n - 1
+#
+# print(get_real_floor(15))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 95 8 kyu / Calculate BMI
+
+# Write function bmi that calculates body mass index (bmi = weight / height2).
+# if bmi <= 18.5 return "Underweight"
+# if bmi <= 25.0 return "Normal"
+# if bmi <= 30.0 return "Overweight"
+# if bmi > 30 return "Obese"
+
+# задача на ветвь событий
+# def bmi(weight, height):
+#     bmi = weight / height**2
+#     print(bmi)
+#     if bmi <= 18.5: return "Underweight"
+#     if bmi <= 25.0: return "Normal"
+#     if bmi <= 30.0: return "Overweight"
+#     return "Obese"
+
+# 2 интересно / прикольная реализация
+# def bmi(weight, height):
+#     b = weight / height ** 2
+#     return ['Underweight', 'Normal', 'Overweight', 'Obese'][(b > 30) + (b > 27) + (b > 18.5)]
+#
+# print(bmi(50, 1.80))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 96 8 kyu / Convert boolean values to strings 'Yes' or 'No'.
+
+# Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+
+# задача на вывод да или нет, прикольно
+# def bool_to_word(boolean):
+#     return ('No', 'Yes')[boolean]
+#
+# print(bool_to_word(True))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 97 8 kyu / Opposite number
+
+# Very simple, given an integer or a floating-point number, find its opposite.
+# Examples:
+# 1: -1
+# 14: -14
+# -34: 34
+
+# def opposite(number):
+#     return -number
+#
+# print(opposite(1))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 98 8 kyu / Grasshopper - Summation
+
+# Summation
+# Write a program that finds the summation of every number from 1 to num.
+# The number will always be a positive integer greater than 0.
+# For example (Input -> Output):
+# 2 -> 3 (1 + 2)
+# 8 -> 36 (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8)
+
+# задача найти сумму последовательности, от 1 до num
+# def summation(num):
+#     return sum([i for i in range(1, num + 1)])
+#
+# print(summation(22))
+
+# 2 так конечно лучше
+# def summation(num):
+#     return sum(range(1, num + 1))
+# print(summation(22))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 99 8 kyu / Reversed sequence
+
+# Build a function that returns an array of integers from n to 1 where n>0.
+# Example : n=5 --> [5,4,3,2,1]
+
+# вывести последовательности от n до 1 (обратный порядок)
+# def reverse_seq(n):
+#     return list(range(1, n + 1))[::-1]
+#
+# print(reverse_seq(5))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 100 8 kyu / Pillars не решил
+
+# There are pillars near the road. The distance between the pillars is the same
+# and the width of the pillars is the same. Your function accepts three arguments:
+# number of pillars (≥ 1);
+# distance between pillars (10 - 30 meters);
+# width of the pillar (10 - 50 centimeters).
+# Calculate the distance between the first and the last pillar in centimeters
+# (without the width of the first and last pillar).
+
+# def pillars(num_pillars, distance_between_pillars, width_of_pillar):
+#     return (num_pillars - 1) * distance_between_pillars * 100
+# print(pillars(2, 20, 25))
+# print(pillars(11, 15, 30))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 101 8 kyu / debag
+
+# def get_planet_name(id):
+#     # This doesn't work; Fix it!
+#     name = {
+#         1: "Mercury",
+#         2: "Venus",
+#         3: "Earth",
+#         4: "Mars",
+#         5: "Jupiter",
+#         6: "Saturn",
+#         7: "Uranus",
+#         8: "Neptune",
+#     }
+#     return name[id]
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 102 8 kyu / FIXME: Replace all dots
+
+# def replace_dots(s):
+#     return s.replace('.', '-')
+#
+# print(replace_dots('no dots'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 103 8 kyu / Jenny's secret message
+
+# def greet(name):
+#     if name == "Johnny":
+#         return "Hello, my love!"
+#     return "Hello, {name}!".format(name=name)
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 104 8 kyu / Vexing Vanishing Values
+
+# def mul_by_n(lst, n):
+#     return [i * n for i in lst]
+#
+# print(mul_by_n([1, 2, 3], 2))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 105 8 kyu / String Templates - Bug Fixing #5
+
+# def build_string(*args):
+#     s = ', '.join(args)
+#     return 'I like {}!'.format(', '.join(args))
+#
+# print(build_string('Cheese', 'Milk', 'Chocolate'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 106 8 kyu / Basic variable assignment
+
+# a = "code"
+# b = "wa.rs"
+# name = a + b
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 107 8 kyu / Basic variable assignment
+
+# def weather_info(temp):
+#     c = convert_to_celsius(temp)
+#     if c < 0:
+#         return f'{c} is freezing temperature'
+#     else:
+#         return f'{c} is above freezing temperature'
+#
+#
+# def convert_to_celsius(temperature):
+#     celsius = (temperature - 32) * (5 / 9)
+#     return celsius
+#
+# print(weather_info(50))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 108 8 kyu / Switch/Case - Bug Fixing #6
+
+# def eval_object(v):
+#     match v['operation']:
+#         case "+":
+#             return v['a'] + v['b']
+#         case "-":
+#             return v['a'] - v['b']
+#         case "/":
+#             return v['a'] / v['b']
+#         case "*":
+#             return v['a'] * v['b']
+#         case "%":
+#             return v['a'] % v['b']
+#         case "**":
+#             return v['a'] ** v['b']
+#         case _:
+#             return 1
+#
+# print(eval_object({'a': 1, 'b': 1, 'operation': '+'}))
+
+# 2 интересно / лучше способ и короче
+# def eval_object(v):
+#     return {
+#         "+": v['a'] + v['b'],
+#         "-": v['a'] - v['b'],
+#         "*": v['a'] * v['b'],
+#         "/": v['a'] / v['b'],
+#     }.get(v['operation'])
+#
+# print(eval_object({'a': 1, 'b': 1, 'operation': '+'}))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 109 8 kyu / Is this my tail?
+
+# def correct_tail(body, tail):
+#     return body[-1] == tail
+#
+# print(correct_tail('Fox', 'x'))
+
+# 2 интересно / функция, проверяющая последний символ
+# def correct_tail(body, tail):
+#     return body.endswith(tail)
+#
+# print(correct_tail('Fox', 'h'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 110 8 kyu / 101 Dalmatians - squash the bugs, not the dogs!
+
+# def how_many_dalmatians(n):
+#     dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIONS!!!"]
+#     if n == 101: return dogs[3]
+#     if n > 50: return dogs[2]
+#     if n > 10: return dogs[1]
+#     if n >= 1: return dogs[0]
+#
+# print(how_many_dalmatians(26))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 111 8 kyu / Semi-Optional
+
+# def wrap(value):
+#     return {'value': value}
+#
+# print(wrap(343))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 112 8 kyu / Semi-Optional
+
+# def kata_13_december(lst):
+#     return [i for i in lst if i % 2 != 0]
+#
+# print(kata_13_december([1, 2, 3, 4]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 113 8 kyu / Floating point comparison (не решил)
+
+# def approx_equals(a, b):
+#     a = round(a, 3)
+#     b = round(b, 3)
+#     if str(abs(a - b))[:5] == '0.0': return True
+#     if str(abs(a - b))[:5] == '0.001': return True
+#     if str(abs(a - b))[:5] == '0.000': return False
+#     if abs(a - b) > 1: return False
+#
+#
+# print(approx_equals(175.9827, 82.25))
+# print(approx_equals(-156.24037, -156.24038))
+# print(approx_equals(123.2345, 123.234501))
+# print(approx_equals(1456.3652, 1456.3641))
+# print(approx_equals(-1.234, -1.233999))
+# print(approx_equals(98.7655, 98.7654999))
+# print(approx_equals(-7.28495, -7.28596))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 114 8 kyu / How do I compare numbers?
+
+# def what_is(x):
+#     if x == 42:
+#         return 'everything'
+#     elif x == 42 * 42:
+#         return 'everything squared'
+#     else:
+#         return 'nothing'
+#
+# print(what_is(0))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 115 8 kyu / Multiply the number
+
+# def multiply(n):
+#     s = len(str(abs(n)))
+#     return n * 5**s
+#
+# print(multiply(-2))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 116 8 kyu / Fix the Bugs (Syntax) - My First Kata
+
+def my_first_kata(a, b):
+    if type(a) or type(b) == int:
+        return (a % b) + (b % a)
+    else:
+        return False
+
+print(my_first_kata(3, 5))
