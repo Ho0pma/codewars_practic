@@ -2365,10 +2365,162 @@
 # ----------------------------------------------------------------------------------------------------------------------#
 # 116 8 kyu / Fix the Bugs (Syntax) - My First Kata
 
-def my_first_kata(a, b):
-    if type(a) or type(b) == int:
-        return (a % b) + (b % a)
-    else:
-        return False
+# def my_first_kata(a, b):
+#     if type(a) or type(b) == int:
+#         return (a % b) + (b % a)
+#     else:
+#         return False
+#
+# print(my_first_kata(3, 5))
 
-print(my_first_kata(3, 5))
+# ----------------------------------------------------------------------------------------------------------------------#
+# 117 8 kyu / They say that only the name is long enough to attract attention.
+# They also said that only a simple Kata will have someone to solve it. This is a sadly story #1: Are they opposite?
+
+# задача поменять регистр у всех символов в строке
+# def is_opposite(s1, s2):
+#     res = ''.join(i.lower() if i.isupper() else i.upper() for i in s1)
+#     if s1 and s2:
+#         return res == s2
+#     else:
+#         return False
+
+# 2 интересно / есть функция для этого
+# def is_opposite(s1, s2):
+#     return False if not(s1 or s2) else s1.swapcase() == s2
+#
+# print(is_opposite('aBcd', 'AB'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 118 8 kyu / Job Matching #1
+
+# задача проверить меньше ли ожидаемая зарплата - 10% от зп
+# def job_matching(candidate, job):
+#     pers = candidate['max_salary'] / 10
+#     return candidate['min_salary'] * pers <= job['max_salary']
+#
+# # print(job_matching())
+# print(int(190000 / 10))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 119 8 kyu / Miles per gallon to kilometers per liter
+
+# def converter(mpg):
+#     return round(mpg * 1.609344 / 4.54609188, 2)
+#
+# print(converter(12))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 120 8 kyu / Draw stairs
+
+# задача нарисовать лестницу
+# def draw_stairs(n):
+#     space = ' '
+#     res = 'I\n'
+#     for i in range(1, n):
+#         if i + 1 == n:
+#             res += space * i + 'I'
+#         else:
+#             res += space * i + 'I\n'
+#     return res
+#
+# 2 вариант / интересно
+# def draw_stairs(n):
+#     return '\n'.join(' ' * i + 'I' for i in range(n))
+# print(draw_stairs(3))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 121 8 kyu / Draw stairs
+
+# задача совместить строки чтобы получилось aaabbbccc
+# def triple_trouble(one, two, three):
+#     lst = zip(one, two, three)
+#     return ''.join(''.join(i) for i in lst)
+
+# 2 можно просто сложить последовательности полученные зипом
+# def triple_trouble(one, two, three):
+#     return ''.join(a + b + c for a, b, c in zip(one, two, three))
+#
+# print(triple_trouble('abc', 'abc', 'abc'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 122 8 kyu / Simple Fun #1: Seats in Theater
+
+# задача посчитать колв- людей сидящих в определенном диапазоне
+# def seats_in_theater(tot_cols, tot_rows, col, row):
+#     return (tot_cols - col + 1) * (tot_rows - row)
+#
+# print(seats_in_theater(16, 11, 5, 3))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 123 8 kyu / 1. Find all active students SQL
+
+# SELECT * FROM students WHERE isActive = 1;
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 124 8 kyu / 1. Did she say hallo?
+# from string import ascii_letters
+#
+# # интересно / задача вывести есть ли приветственное слово в вводимой строке или нет (тру - фолс)
+# def validate_hello(greetings):
+#     hello_set = {'hello', 'ciao', 'salut', 'hallo', 'hola', 'ahoj', 'czesc'}
+#     text = ''.join(i for i in greetings if i in ascii_letters).lower()
+#     return True in [i in text for i in [i for i in hello_set]]
+#
+# 2 интересно
+# def validate_hello(greetings):
+#     return any(i in greetings.lower() for i in ['hello', 'ciao', 'salut', 'hallo', 'hola', 'ahoj', 'czesc'])
+#
+# print(validate_hello('hombre! Hola!'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 125 8 kyu / Thinkful - Logic Drills: Traffic light
+
+# def update_light(current):
+#     next_light_dict = {
+#         'green': 'yellow',
+#         'yellow': 'red',
+#         'red': 'green'
+#     }
+#     return next_light_dict[current]
+
+# def update_light(current):
+#     color = ['green', 'yellow', 'red']
+#     return color[(color.index(current) + 1) % len(color)]
+# print(update_light('red'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 126 8 kyu / Quadrants
+
+# задача определить в каком квадрате находятся координаты
+# def quadrant(x, y):
+#     if x > 0 and y > 0: return 1
+#     if x < 0 < y: return 2
+#     if x < 0 and y < 0: return 3
+#     if x > 0 > y: return 4
+#
+# print(quadrant(1, 2))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 127 8 kyu / Quadrants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
