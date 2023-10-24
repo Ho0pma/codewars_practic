@@ -2502,24 +2502,268 @@
 # print(quadrant(1, 2))
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# 127 8 kyu / Quadrants
+# 127 8 kyu / Find the Integral
+
+# задача вычислить интеграл числа
+# def integrate(coefficient, exponent):
+#     return f'{int(coefficient / (exponent + 1))}x^{exponent + 1}'
+#
+# print(integrate(3, 2))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 128 8 kyu / Take the Derivative
+
+# задача взять производную
+# def derive(coefficient, exponent):
+#     return f'{coefficient * exponent}x^{exponent - 1}'
+#
+# print(derive(7, 8))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 129 8 kyu / 5 without numbers !!
+
+# def unusual_five():
+#     return sum([True, True, True, True, True])
+#
+# print(unusual_five())
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 130 8 kyu / Return Negative
+
+# def make_negative( number ):
+#     return -number if number > 0 else number
+#
+# print(make_negative(-5))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 131 8 kyu / Twice as old
+
+# def twice_as_old(dad_years_old, son_years_old):
+#     return abs(dad_years_old - son_years_old * 2)
+#
+# print(twice_as_old(36, 7))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 132 8 kyu / Expressions Matter
+
+# def expression_matter(a, b, c):
+#     f1 = a * (b + c)
+#     f2 = a * b * c
+#     f3 = a + b * c
+#     f4 = (a + b) * c
+#     f5 = a + b + c
+#     return max([f1, f2, f3, f4, f5])
+#
+# print(expression_matter(1, 10, 1))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 133 8 kyu / Wilson primes (не решил)
+
+# from math import factorial
+# def am_i_wilson(p):
+#     return (factorial(p - 1) + 1) / (p * p) == 1
+#
+# print(am_i_wilson(563))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 134 8 kyu / Grasshopper - Check for factor
+
+# def check_for_factor(base, factor):
+#     return base % factor == 0
+#
+# print(check_for_factor(10, 2))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 135 8 kyu / Opposites Attract
+
+# def lovefunc(flower1, flower2):
+#     return flower1 % 2 == 0 if flower2 % 2 != 0 else flower1 % 2 != 0
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 136 8 kyu / Powers of 2
+
+# def powers_of_two(n):
+#     return [2**i for i in range(n + 1)]
+#
+# print(powers_of_two(0))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 137 8 kyu / Get Nth Even Number
+
+# интересно / задача вывести n-e четное число
+# def nth_even(n):
+#     lst = []
+#     i = 0
+#     while len(lst) != n:
+#         lst.append(i)
+#         i += 2
+#     return lst[n - 1]
+
+# 2 так нужно решать
+# def nth_even(n):
+#     return (n - 1) * 2
+#
+# print(nth_even(100))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 138 8 kyu / Neutralisation
+#
+# задача про то, что из '+-+' и '+--' должно получиться +-0, тк + и + = +, - и - = -, + и - = 0
+
+# def neutralise(s1, s2):
+#     result_string = ''
+#     for i in range(len(s1)):
+#         if s1[i] != s2[i]:
+#             result_string += '0'
+#         else:
+#             result_string += s1[i]
+#     return result_string
+#
+# print(neutralise('+-+', '+--'))
+# print(neutralise('-+-+-+', '-+-+-+'))
+
+# 2 отличный варик, сравнивает два элемента зипа, последовательно
+# def neutralise(s1, s2):
+#     return ''.join('0' if i != j else i for i, j in zip(s1, s2))
+#     # ZIP(S1, S2) = [('+', '+'), ('-', '-'), ('+', '-')]
+#
+# print(neutralise('+-+', '+--'))
+
+# 3
+# def neutralise(s1, s2):
+#     return ''.join(map(lambda a, b: ['0', a][a == b], s1, s2))
+#
+# print(neutralise('+-+', '+--'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 139 8 kyu / Neutralisation
+
+# задача состоит в том, чтобы вывести кол-во операций, чтобы достигнуть единицы. Если подается 1 = 0, тк сразу еденица
+# подается.
+# [This is writen in pseudocode]
+# if(number is even) number = number / 2
+# if(number is odd) number = 3*number + 1
+
+# def hotpo(n):
+#     count = 0
+#     while n != 1:
+#         if n % 2 == 0:
+#             n /= 2
+#         else:
+#             n = 3 * n + 1
+#
+#         count += 1
+#
+#     return count
+#
+# print(hotpo(23))
+
+# 2
+# гениальным мув с использованием рекурсии
+# def hotpo(n, count=0):
+#     return count if n == 1 else hotpo(n / 2 if n % 2 == 0 else n * 3 + 1, count + 1)
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 140 8 kyu / Simple Fun #261: Whose Move
+
+# задача понять кто выиграл. На вход подается Белые проиграли. Ответ: черные
+# def whose_move(last_player, win):
+#     if last_player == 'white':
+#         if win:
+#             return last_player
+#         else:
+#             return 'black'
+#     else:
+#         if win:
+#             return last_player
+#         else:
+#             return 'white'
+#
+# print(whose_move('black', False))
+# print(whose_move('white', False))
+
+# 2
+# def whose_move(last_player, win):
+#     return last_player if win else 'white' if last_player == 'black' else 'black'
 
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 141 8 kyu / Calculate Price Excluding VAT
 
+# в задаче прайс приходит как значение + 15% НДС, те 115%, нужно вернуть число равное 100%
+# def excluding_vat_price(price):
+#     return round(price - (price * 15 / 115), 2) if price else -1
+#
+# print(excluding_vat_price(230.00))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 142 8 kyu / Classy Classes
 
+# задача состояла в том, чтобы исправить написанный класс и конструктор в нем
+# class Person:
+#     def __init__(self, name, age):
+#         self.info = f"{name}s age is {age}"
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 143 8 kyu / Color Ghost
 
+# задача создать класс, при вызове ЭК которого будет выводиться рандомный цвет
+# from random import choice
+#
+# class Ghost:
+#     def __init__(self):
+#         colors = ['white', 'yellow', 'red', 'purple']
+#         self.color = choice(colors)
+#
+# ghost = Ghost()
+# print(ghost.color)
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 144 8 kyu / Difference of Volumes of Cuboids
 
+# задача вычислить какой из кубов больше по объему (перемноженные стороны а - перемноженные стороны b)
+# from functools import reduce
+#
+#
+# def find_difference(a, b):
+#     return abs(reduce(lambda x, y: x * y, a) - reduce(lambda x, y: x * y, b))
+#
+# print(find_difference([2, 2, 3], [5, 4, 1]))
 
+# 2
+# можно решить через numpy
 
+# from numpy import prod
+#
+# def find_difference(a, b):
+#     return abs(prod(a) - prod(b))
+#
+# print(find_difference([2, 2, 3], [5, 4, 1]))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 145 8 kyu / Hex to Decimal
 
+# задача конвертнуть строку в 16разряд число
+# def hex_to_dec(s):
+#     return int(s, 16)
+#
+# print(hex_to_dec('a'))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 146 8 kyu / Aspect Ratio Cropping - Part 1
 
+# from typing import Tuple
+# from math import ceil
+#
+#
+# def aspect_ratio(x: int, y: int) -> Tuple[int, int]:
+#     # 頑張って！
+#     return ceil(y * 16/9), y
+#
+# print(aspect_ratio(374, 280))
 
-
+# ----------------------------------------------------------------------------------------------------------------------#
+# 147 8 kyu /
 
 
 
