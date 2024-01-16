@@ -2796,4 +2796,79 @@
 # print(get_size(4, 2, 6))
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# 150 8 kyu /
+# 150 8 kyu / Grasshopper - Terminal game combat function
+
+# задача: вернуть кол-во оставшегося хп. Если хп < 0 - вернуть 0
+# def combat(health, damage):
+#     return health - damage if (health - damage) > 0 else 0
+#
+# print(combat(200, 300))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 151 8 kyu / Find the force of gravity between two objects
+
+# задача: чисто математика, вычислить силу притяжения
+# def solution(arr_val, arr_unit) :
+#     # словарь, чтобы понять в какой размерности масса
+#     mass_units = {'kg': 1, 'g': 1e-3, 'mg': 1e-6, 'μg': 1e-9, 'lb': 0.453592}
+#     distance_units = {'m': 1, 'cm': 1e-2, 'mm': 1e-3, 'μm': 1e-6, 'ft': 0.3048}
+#
+#     # распаковываем полученные списки
+#     mass_obj1, mass_obj2, distance = arr_val
+#     unit_mass_obj1, unit_mass_obj2, unit_distance = arr_unit
+#
+#     # вычисляем массу относительно кг (берем значения из словаря)
+#     mass_obj1_kg = mass_obj1 * mass_units[unit_mass_obj1]
+#     mass_obj2_kg = mass_obj2 * mass_units[unit_mass_obj2]
+#
+#     # то же самое для дистанции в метрах
+#     distance_m = distance * distance_units[unit_distance]
+#
+#
+#     # константа гравитации
+#     G = 6.67 * 10**-11
+#
+#     # вычисляем силу притяжения
+#     force = G * (mass_obj1_kg * mass_obj2_kg) / distance_m**2
+#     return force
+#
+# print(solution([1000, 1000, 100], ["g", "kg", "m"]))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 152 8 kyu / Basic subclasses - Adam and Eve
+
+# задача: написать два класса (Man и Women), которые будут унаследованы от Human и вернуть рез в функции God
+# class Human:
+#     def __init__(self, name):
+#         self.name = name
+#
+# class Man(Human):
+#     def __init__(self, name):
+#         super().__init__(name)
+#
+# class Woman(Human):
+#     def __init__(self, name):
+#         super().__init__(name)
+#
+# def god():
+#     return [Man('Adam'), Woman('Eve')]
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 153 8 kyu / Sleigh Authentication
+
+# задача:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
