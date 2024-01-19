@@ -2987,13 +2987,13 @@
 #     return f'{first_name} {last_name}'
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# 161 8 kyu / Formatting decimal places #0
+161 8 kyu / Formatting decimal places #0
 
-# # задача: округлить до 2 знаков
-# def two_decimal_places(n):
-#     return round(n, 2)
-#
-# print(two_decimal_places(5.5589))
+# задача: округлить до 2 знаков
+def two_decimal_places(n):
+    return round(n, 2)
+
+print(two_decimal_places(5.5589))
 
 
 
