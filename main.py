@@ -2854,21 +2854,44 @@
 #     return [Man('Adam'), Woman('Eve')]
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# 153 8 kyu / Sleigh Authentication
+# 153 8 kyu / Sum without highest and lowest number
 
-# задача:
+# # задача: вывести сумму списка, без макс и мин значения
+# def sum_array(arr):
+#     return sum(arr) - min(arr) - max(arr) if arr and len(arr) > 1 else 0
+#
+#
+# print(sum_array([3]))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 154 8 kyu / Rock Paper Scissors!
 
+# # задача: реализовать игру камень-ножницы-бумага
+# def rps(p1, p2):
+#     if p1 == 'rock' and p2 != 'rock':
+#         return 'Player 1 won!' if p2 == 'scissors' else "Player 2 won!"
+#     elif p1 == 'scissors' and p2 != 'scissors':
+#         return 'Player 1 won!' if p2 == 'paper' else "Player 2 won!"
+#     elif p1 == 'paper' and p2 != 'paper':
+#         return 'Player 1 won!' if p2 == 'rock' else "Player 2 won!"
+#     else:
+#         return 'Draw!'
+#
+# # второй вариант:
+# def rps(p1, p2):
+#     winner = {
+#         'rock': 'scissors',
+#         'scissors': 'paper',
+#         'paper': 'rock'
+#     }
+#     if winner[p1] == p2:
+#         return 'Player 1 won!'
+#     if winner[p2] == p1:
+#         return 'Player 1 won!'
+#     else: return 'Draw!'
 
-
-
-
-
-
-
-
-
-
+# ----------------------------------------------------------------------------------------------------------------------#
+# 155 8 kyu /
 
 
 
