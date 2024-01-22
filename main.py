@@ -2890,8 +2890,117 @@
 #         return 'Player 1 won!'
 #     else: return 'Draw!'
 
+# # самое топое решение этой задачи:
+# def rps(p1, p2):
+#     hand = {'rock': 0, 'paper': 1, 'scissors': 2}
+#     results = ['Draw!', 'Player 1 won!', 'Player 2 won!']
+#     return results[hand[p1] - hand[p2]]
+
 # ----------------------------------------------------------------------------------------------------------------------#
-# 155 8 kyu /
+# 155 8 kyu / Finish Guess the Number Game
+
+# задача: Реализовать функцию guess - проверка на правильность введенной цифры. Если правильно - true. Если нет- false
+# если закончились попытки - raise
+# class Guesser:
+#     def __init__(self, number, lives):
+#         self.number = number
+#         self.lives = lives
+#
+#     def guess(self, n):
+#         if self.lives > 0:
+#             if self.number != n:
+#                 self.lives -= 1
+#                 return False
+#             else:
+#                 return True
+#         else: raise ValueError("No more lives, game over!")
+#
+#
+# obj = Guesser(10, 2)
+# obj.guess(9)
+# obj.guess(9)
+# obj.guess(9)
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 156 8 kyu / Correct the mistakes of the character recognition software
+
+# задача: нужно заменить в полученном слове числа на соотв. буквы
+# def correct(s: str):
+#     return s.replace('0', 'O').replace('5', 'S').replace('1', 'I')
+#
+# print(correct('DUBL1N'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 157 8 kyu / L1: Bartender, drinks!
+
+# задача: нужно вывести из дикта значение по ключу, если такое есть.
+# def get_drink_by_profession(param):
+#     d = {
+#         "JABRONI": "Patron Tequila",
+#         "SCHOOL COUNSELOR": "Anything with Alcohol",
+#         "PROGRAMMER": "Hipster Craft Beer",
+#         "BIKE GANG MEMBER": "Moonshine",
+#         "POLITICIAN": "Your tax dollars",
+#         "RAPPER": "Cristal"
+#     }
+#
+#     return d.get(param.upper(), 'Beer')
+#
+# print(get_drink_by_profession('Jabroni'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 158 8 kyu / Tip Calculator
+
+# # задача: нужно посчитать чаевые, с округлением в большую сторону.
+# def calculate_tip(amount, rating):
+#     d = {
+#         'TERRIBLE': 0,
+#         'POOR': 0.05,
+#         'GOOD': 0.1,
+#         'GREAT': 0.15,
+#         'EXCELLENT': 0.2,
+#     }
+#     try:
+#         return __import__('math').ceil(amount * d[rating.upper()])
+#     except: return 'Rating not recognised'
+#
+# print(calculate_tip(107.65, 'GReat'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 159 8 kyu / Sleigh Authentication
+
+# # задача: нужно просто проверить правильность входных данных
+# class Sleigh(object):
+#     def authenticate(self, name, password):
+#         return name == 'Santa Claus' and password == 'Ho Ho Ho!'
+#
+#
+# obj = Sleigh()
+# print(obj.authenticate('asdfas', 'safdsa'))
+# print(obj.authenticate('Santa Claus', 'Ho Ho Ho!'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 160 8 kyu / Grasshopper - Combine strings
+
+# задача: написать функцию и вернуть два параметра
+# def combine_names(first_name, last_name):
+#     return f'{first_name} {last_name}'
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 161 8 kyu / Formatting decimal places #0
+
+# # задача: округлить до 2 знаков
+# def two_decimal_places(n):
+#     return round(n, 2)
+#
+# print(two_decimal_places(5.5589))
+
+
+
+
+
+
+
 
 
 
