@@ -2987,20 +2987,89 @@
 #     return f'{first_name} {last_name}'
 
 # ----------------------------------------------------------------------------------------------------------------------#
-161 8 kyu / Formatting decimal places #0
+# 161 8 kyu / Formatting decimal places #0
+#
+# # задача: округлить до 2 знаков
+# def two_decimal_places(n):
+#     return round(n, 2)
+#
+# print(two_decimal_places(5.5589))
 
-# задача: округлить до 2 знаков
-def two_decimal_places(n):
-    return round(n, 2)
+# ----------------------------------------------------------------------------------------------------------------------#
+# 162 8 kyu / easy logs
 
-print(two_decimal_places(5.5589))
+# # задача: вычислить логарифм с задаваемым основанием
+# from math import log
+# def logs(x, a, b):
+#     return log(a, x) + log(b, x)
+#
+# print(logs(10, 2, 3))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 163 8 kyu / Pirates!! Are the Cannons ready!??
 
+# # задача: если все ключи в дикте aye - Fire, если нет - Shiver me timbers!
+# def cannons_ready(gunners):
+#     return 'Shiver me timbers!' if 'nay' in gunners.values() else 'Fire!'
+#
+#
+# print(cannons_ready({'Mike': 'aye', 'Joe': 'nay', 'Johnson': 'aye', 'Peter': 'aye'}))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 164 8 kyu / A Strange Trip to the Market
+#
+# # задача: проверить есть ли в строке заданные выражения
+# def is_loch_ness_monster(string):
+#     return '3.50' in string or "three fifty" in string or "tree fiddy" in string
+#
+# print(is_loch_ness_monster("Your girlscout cookies are ready to ship. Your total comes to tree fiddy"))
+#
+# # второй вар, новое
+# def is_loch_ness_monster(string):
+#     return any(i in string for i in ("three fifty", '3.50', "tree fiddy"))
+#
+# print(is_loch_ness_monster("Your girlscout cookies are ready to ship. Your total comes to tree fiddy"))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 165 8 kyu / Remove the time
 
+# # задача: укоротить полученную строку
+# def shorten_to_date(long_date):
+#     return long_date.split(',')[0]
+#
+# print(shorten_to_date('Monday February 2, 8pm'))
+#
+# # второй вар, лучше
+# def shorten_to_date(long_date):
+#     return long_date[:long_date.index(',')]
+#
+# print(shorten_to_date('Monday February 2, 8pm'))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 166 8 kyu / Find the Remainder
 
+# # задача: вернуть остаток от деления большего на меньшее с доп условиями.
+# def remainder(a, b):
+#     return max(a, b) % min(a, b) if min(a, b) != 0 else None
+#
+#
+# print(remainder(0, -1))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 167 8 kyu / Leonardo Dicaprio and Oscars
 
+# # задача: разобраться как работает иф))
+# def leo(oscar):
+#     if oscar == 88:
+#         return "Leo finally won the oscar! Leo is happy"
+#     elif oscar == 86:
+#         return "Not even for Wolf of wallstreet?!"
+#     elif oscar < 88:
+#         return "When will you give Leo an Oscar?"
+#     else:
+#         return "Leo got one already!"
+#
+# print(leo(96))
 
+# ----------------------------------------------------------------------------------------------------------------------#
+# 168 8 kyu /
