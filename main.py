@@ -3072,4 +3072,107 @@
 # print(leo(96))
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# 168 8 kyu /
+# 168 8 kyu / Circles in Polygons
+
+# # задача: вычислить сколько кругов может поместиться в павильоне (сколько угодно сторон).
+
+# import math
+# def circle_diameter(sides, side_length):
+#     # distance from the center to the midpoint of a side of the polygon
+#     apothem = side_length / (2 * math.tan(math.pi / sides))
+#
+#     # Calculate the diameter of the inscribed circle
+#     diameter = 2 * apothem
+#
+#     return diameter
+#
+# print(circle_diameter(4, 5))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 169 8 kyu / Template Strings
+
+# # задача: вернуть измененную строку
+# def temple_strings(obj, feature):
+#     return f'{obj} are {feature}'
+#
+# print(temple_strings("Animals", "Good"))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 170 8 kyu / Safen User Input Part I - htmlspecialchars
+
+# # задача: изменить строку в соответствии с требованиями
+# def html_special_chars(string):
+#     return string.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
+#
+# print(html_special_chars('<h2>Hello World</h2>'))
+#
+# # второй вар, новое
+# def html_special_chars(string):
+#     d = {
+#         '&': '&amp;',
+#         '<': '&lt;',
+#         '>': '&gt;',
+#         '"': '&quot;'
+#     }
+#     return ''.join(d.get(x, x) for x in string)
+#
+# print(html_special_chars('<h2>Hello World</h2>'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 171 8 kyu / How old will I be in 2099?
+
+# # задача: нужно вычислить сколько человеку лет. Вывод имеет ряд условий
+# def calculate_age(year_of_birth, current_year):
+#     year_count = abs(year_of_birth - current_year)
+#
+#     if current_year > year_of_birth:
+#         result = f'You are {year_count} years old.'
+#     elif current_year < year_of_birth:
+#         result = f'You will be born in {year_count} years.'
+#     else:
+#         result = "You were born this very year!"
+#     return result if year_count > 1 else result.replace('years', 'year')
+#
+# print(calculate_age(2013, 2012))
+
+# # второй вар, новое (условие при создании строки)
+# def calculate_age(year_of_birth, current_year):
+#     year_count = abs(year_of_birth - current_year)
+#     plural = '' if year_count == 1 else 's'
+#
+#     if current_year > year_of_birth:
+#         return 'You are {} year{} old.'.format(year_count, plural)
+#     elif current_year < year_of_birth:
+#         return 'You will be born in {} year{}.'.format(year_count, plural)
+#     else:
+#         return "You were born this very year!"
+#
+# print(calculate_age(2013, 2012))
+
+# # третий вар, новое (условие в формате)
+# def calculate_age(year_of_birth, current_year):
+#     year_count = abs(year_of_birth - current_year)
+#
+#     if current_year > year_of_birth:
+#         return 'You are {} year{} old.'.format(year_count, '' if year_count == 1 else 's')
+#     elif current_year < year_of_birth:
+#         return 'You will be born in {} year{}.'.format(year_count, '' if year_count == 1 else 's')
+#     else:
+#         return "You were born this very year!"
+#
+# print(calculate_age(2013, 2012))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# # 172 8 kyu / Greek Sort
+#
+# # задача: узнать какой символ алфавита старше или младше или равны.
+# def greek_comparator(lhs, rhs):
+#     greek_alphabet = (
+#         'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta',
+#         'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu',
+#         'nu', 'xi', 'omicron', 'pi', 'rho', 'sigma',
+#         'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega')
+#
+#     return greek_alphabet.index(lhs) - greek_alphabet.index(rhs)
+#
+# print(greek_comparator('alpha', 'beta'))
