@@ -3163,7 +3163,7 @@
 # print(calculate_age(2013, 2012))
 
 # ----------------------------------------------------------------------------------------------------------------------#
-# # 172 8 kyu / Greek Sort
+# 172 8 kyu / Greek Sort
 #
 # # задача: узнать какой символ алфавита старше или младше или равны.
 # def greek_comparator(lhs, rhs):
@@ -3176,3 +3176,84 @@
 #     return greek_alphabet.index(lhs) - greek_alphabet.index(rhs)
 #
 # print(greek_comparator('alpha', 'beta'))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 173 8 kyu / Convert a Number to a String!
+
+# # задача: вернуть вместо инта стринг
+# def number_to_string(num):
+#     return  f'{num}'
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 174 8 kyu / Invalid Login - Bug Fixing #11
+
+# # задача: заключалась в том, чтобы использовать написанный не мной класс
+# def validate(username, password):
+#     database = Database()
+#     return database.login(username, password)
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 175 8 kyu / Heads and Legs
+
+# # задача (сложно): разобраться сколько кур и коров в заповеднике. Если знаем только кол-во ног и голов
+# def animals(heads, legs):
+#     if heads < 0 or legs < 0 or legs % 2 != 0:
+#         return "No solutions"
+#
+#     cows = int((legs - 2 * heads) / 2)
+#     chickens = int(heads - cows)
+#
+#     if cows < 0 or chickens < 0 or cows % 1 != 0 or chickens % 1 != 0:
+#         return "No solutions"
+#     return chickens, cows
+#
+# print(animals(-1, -55))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 176 8 kyu / Fuel Calculator: Total Cost
+
+# # задача (сложно): вычислить сколько стоит бензин, учитывая скидку
+# def fuel_price(litres, price_per_litre):
+#     if 4 > litres >= 2:
+#         discount = 5
+#     elif 6 > litres >= 4:
+#         discount = 10
+#     elif 8 > litres >= 6:
+#         discount = 15
+#     elif 10 > litres >= 8:
+#         discount = 20
+#     else:
+#         discount = 25
+#
+#     return ((litres * price_per_litre) * 100 - discount * litres) / 100
+#
+# print(fuel_price(15, 5.83))
+#
+# # лучше
+# def fuel_price(litres, price_per_liter):
+#     discount = int(min(litres, 10)/2) * 5 / 100
+#     return round((price_per_liter - discount) * litres, 2)
+#
+# print(fuel_price(15, 5.83))
+
+# ----------------------------------------------------------------------------------------------------------------------#
+# 177 8 kyu /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
